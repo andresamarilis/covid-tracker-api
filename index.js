@@ -1,42 +1,34 @@
+init()
 
+function init() {
 
-    init()
-
- function init(){
-
-   let url = "https://api.covid19api.com/summary"
+    let url = "https://api.covid19api.com/summary"
 
 
 
-   $.get(url, function(data){
+    $.get(url, function (data) {
 
-       //console.log(data.Countries[8].TotalConfirmed)//
-      // console.log(data.Countries[8])//
+        //console.log(data.Countries[8].TotalConfirmed)//
+        // console.log(data.Countries[8])//
 
-       data = `<td> ${data.Countries[8].NewConfirmed} </td>
+        data = `<td> ${data.Countries[8].NewConfirmed} </td>
        <td> ${data.Countries[8].NewDeaths} </td>
        <td> ${data.Countries[8].NewRecovered} </td>`
-
-      
-
-       
-       $("#data").html(data)
-     
-
-   });
+        $("#data").html(data)
 
 
-   $.get(url, function(dataTwo){
+    });
 
-   
-    dataTwo = `<td> ${dataTwo.Countries[8].TotalConfirmed} </td>
+
+    $.get(url, function (dataTwo) {
+
+
+        dataTwo = `<td> ${dataTwo.Countries[8].TotalConfirmed} </td>
     <td> ${dataTwo.Countries[8].TotalDeaths} </td>
     <td> ${dataTwo.Countries[8].TotalRecovered} </td>`
- 
+        $("#dataTwo").html(dataTwo)
 
-    $("#dataTwo").html(dataTwo)
-
-})
+    })
 
 
 }
@@ -49,9 +41,5 @@ let refreshData = () => {
 let clearData = () => {
     $("#data").empty()
     $("#dataTwo").empty()
-      
+
 }
-
-
-
-
